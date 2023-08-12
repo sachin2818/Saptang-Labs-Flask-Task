@@ -1,0 +1,23 @@
+LinkedIn API:
+
+1.  Profile Details:
+        ProfileName
+        Description(About)
+        Location
+        FollowersCount
+    Store the above details in MongoDB - ProfileCollection
+
+2. Post Details:
+        PostedDateTime
+        PostContent
+        Hashtag
+        LikesCount
+        LikedProfiles: [ {profileName:'', profileLink:''}]        
+        CommentCount
+        CommentMessage: [{'commentedProfile': '', 'commentedProfileLink': '', 'comment': ''}]
+    Store the above details in MongoDB - PostCollection
+
+3. Create a Python Flask API with the following routes which fetch data from the above mongo collection:
+    Routes:
+        getProfileData: parameter - profile_link
+        getPostData: parameter - post_link
