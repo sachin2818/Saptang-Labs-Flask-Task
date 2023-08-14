@@ -1,4 +1,4 @@
-Fake
+Faker
 Flask
 mongoengine
 waitress
