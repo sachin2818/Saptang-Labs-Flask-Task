@@ -27,7 +27,7 @@ def get_profiles():
 def get_profile_data(id):
     profile = Profile.objects(id=ObjectId(id)).exclude("id")
     if profile:
-        return {**profile.to_json(), "id":id}
+        return {**profile.to_mongo(), "id":id}
     return jsonify({"error": "Profile not found"}), 404
 
 
@@ -51,7 +51,7 @@ def get_posts():
 def get_post_data(id):
     post = Post.objects(id=ObjectId(id)).exclude("id")
     if post:
-        return {**post.to_json(), "id":id}
+        return {**post.to_mongo(), "id":id}
     return jsonify({"error": "Post not found"}), 404
 
 
