@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from bson.objectid import ObjectId
 
 from app.models import Profile, Post
-# from app.load_dummy_data import load
+from app.load_dummy_data import load
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -55,7 +55,7 @@ def get_post_data(id):
     return jsonify({"error": "Post not found"}), 404
 
 
-# load() # load dummy data
+load() # load dummy data
 
 
 def create_app():
