@@ -25,9 +25,9 @@ def get_profiles():
 
 @app.route("/profiles/<id>", methods=["GET"])
 def get_profile_data(id):
-    profile = Profile.objects(id=ObjectId(id)).exclude("id")
+    profile = Profile.objects(id=ObjectId(id)).exclude("id").first()
     if profile:
-        return {"data":profile.to_json(), "id":id}
+        return {"data":profile.to_mongo(), "id":id}
     return jsonify({"error": "Profile not found"}), 404
 
 
@@ -49,9 +49,9 @@ def get_posts():
 
 @app.route("/posts/<id>", methods=["GET"])
 def get_post_data(id):
-    post = Post.objects(id=ObjectId(id)).exclude("id")
+    post = Post.objects(id=ObjectId(id)).exclude("id").first()
     if post:
-        return {"data":post.to_json(), "id":id}
+        return {"data":post.to_mongo(), "id":id}
     return jsonify({"error": "Post not found"}), 404
 
 
