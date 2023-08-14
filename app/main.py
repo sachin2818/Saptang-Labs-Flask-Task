@@ -39,7 +39,7 @@ def get_posts():
     offset = (page_nb - 1) * items_per_page
 
     posts = [ {"id":str(Post.id)} for Post in 
-                Profile.objects.only("id").skip( offset ).limit( items_per_page )]
+                Post.objects.only("id").skip( offset ).limit( items_per_page )]
     print(posts)
     if posts:
         return posts
